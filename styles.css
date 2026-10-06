@@ -646,3 +646,27 @@ html[dir="ltr"] .text-button { direction: ltr; }
     transition-duration: .001ms !important;
   }
 }
+
+/* Intro production logo hard cap — keeps the uploaded mark compact on mobile */
+#intro-logo {
+  display: block !important;
+  width: 84px !important;
+  height: 84px !important;
+  max-width: 84px !important;
+  max-height: 84px !important;
+  object-fit: contain !important;
+  flex: 0 0 84px !important;
+}
+
+.intro-card[data-group="production"] .intro-logo-wrap {
+  width: min(58vw, 220px) !important;
+  min-height: 142px !important;
+  padding: 16px 18px !important;
+}
+
+.intro-card[data-group="production"] .festival-name {
+  margin-top: 10px !important;
+  max-width: 190px;
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+}
