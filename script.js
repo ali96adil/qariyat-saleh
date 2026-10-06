@@ -1,9 +1,9 @@
 const copy = {
   ar: {
-    archive: "ملف العرض الرقمي",
+    archive: "ملف العرض",
     eyebrow: "مسرحية",
     title: "قرية صالح",
-    heroCopy: "ملف رقمي للعرض المسرحي",
+    heroCopy: "البرنامج الرسمي للعرض",
     durationShort: "مدة العرض",
     permanentPage: "صفحة العرض",
     crewHeading: "كادر العمل",
@@ -20,8 +20,6 @@ const copy = {
     production: "إنتاج",
     logoPlaceholder: "شعار المهرجان",
     festivalName: "مهرجان بابل للثقافات العالمية",
-    identityHeading: "هوية رقمية للعرض",
-    identityCopy: "هذا الرابط هو النسخة الدائمة لبطاقة العرض، ويمكن تحديث محتوى الصفحة لاحقاً من دون تغيير رمز QR المطبوع.",
     replay: "إعادة المقدمة",
     skip: "تخطي",
     introKicker: "ملف العرض",
@@ -36,10 +34,10 @@ const copy = {
     ]
   },
   en: {
-    archive: "Digital Performance File",
+    archive: "Performance Program",
     eyebrow: "Theatre Performance",
     title: "Qariyat Saleh",
-    heroCopy: "Digital performance archive",
+    heroCopy: "Official performance program",
     durationShort: "Duration",
     permanentPage: "Permanent page",
     crewHeading: "Creative Team",
@@ -56,8 +54,6 @@ const copy = {
     production: "Production",
     logoPlaceholder: "Festival Logo",
     festivalName: "Babylon Festival for World Cultures",
-    identityHeading: "A Digital Identity for the Performance",
-    identityCopy: "This URL is the permanent digital card for the performance. Its content can be updated later without changing the printed QR code.",
     replay: "Replay intro",
     skip: "Skip",
     introKicker: "Performance File",
