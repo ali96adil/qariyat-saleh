@@ -303,9 +303,11 @@ button:focus-visible {
 
 .logo-slot {
   margin-top: 10px;
-  min-height: 102px;
-  display: grid;
-  place-items: center;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 1px dashed rgba(184,203,212,.25);
   border-radius: 16px;
   background: rgba(255,255,255,.018);
@@ -314,8 +316,9 @@ button:focus-visible {
 
 #festival-logo {
   display: block;
-  max-width: min(72%, 260px);
-  max-height: 110px;
+  width: auto;
+  max-width: min(46%, 180px);
+  max-height: 86px;
   object-fit: contain;
 }
 
@@ -512,12 +515,14 @@ html[dir="ltr"] .text-button { direction: ltr; }
 }
 
 .intro-logo-wrap {
-  width: min(78vw, 420px);
-  min-height: 180px;
-  display: grid;
-  place-items: center;
+  width: min(64vw, 300px);
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-top: 8px;
-  padding: 24px;
+  padding: 18px;
   border: 1px solid rgba(184,203,212,.18);
   border-radius: 20px;
   background: rgba(255,255,255,.025);
@@ -530,9 +535,25 @@ html[dir="ltr"] .text-button { direction: ltr; }
 
 .intro-logo {
   display: block;
-  width: 100%;
-  max-height: 220px;
+  width: auto;
+  max-width: min(44vw, 170px);
+  max-height: 105px;
   object-fit: contain;
+}
+
+.festival-name {
+  margin: 14px 0 0;
+  color: var(--text);
+  font-size: clamp(13px, 3.7vw, 17px);
+  font-weight: 700;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.permanent-festival-name {
+  margin-top: 12px;
+  color: var(--cold);
+  font-size: 13px;
 }
 
 .intro-card[data-group="production"] .intro-role {
