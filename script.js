@@ -31,7 +31,7 @@ const copy = {
       { role: "سينوغرافيا", name: "علي عادل", extra: "", group: "scenography" },
       { role: "تمثيل", name: "حسين العكيلي\nفاطمة حيدر\nأصيل عساف\nعبدالله أحمد\nستيڤ أحمد", extra: "الممثلون", group: "cast" },
       { role: "مدة العرض", name: "ساعة ودقيقتان", extra: "01:02:00", group: "meta" },
-      { role: "إنتاج", name: "المهرجان", extra: "يُضاف الشعار لاحقاً", group: "production" }
+      { role: "إنتاج", name: "", extra: "", group: "production", showLogo: true }
     ]
   },
   en: {
@@ -66,7 +66,7 @@ const copy = {
       { role: "Scenography", name: "Ali Adil", extra: "", group: "scenography" },
       { role: "Cast", name: "Hussein Al-Aqili\nFatima Haider\nAseel Assaf\nAbdullah Ahmed\nSteve Ahmed", extra: "Cast", group: "cast" },
       { role: "Duration", name: "1 hour 2 minutes", extra: "01:02:00", group: "meta" },
-      { role: "Production", name: "Festival", extra: "Logo to be added", group: "production" }
+      { role: "Production", name: "", extra: "", group: "production", showLogo: true }
     ]
   }
 };
@@ -78,6 +78,8 @@ const introCard = document.getElementById("intro-card");
 const introRole = document.getElementById("intro-role");
 const introName = document.getElementById("intro-name");
 const introExtra = document.getElementById("intro-extra");
+const introLogoWrap = document.getElementById("intro-logo-wrap");
+const introLogo = document.getElementById("intro-logo");
 const introKicker = document.getElementById("intro-kicker");
 const introDots = document.getElementById("intro-dots");
 const skipButton = document.getElementById("skip-intro");
@@ -130,7 +132,9 @@ function renderIntroCard(index, animate = true) {
   const update = () => {
     introCard.dataset.group = item.group || "default";
     introRole.textContent = item.role;
-    introName.textContent = item.name;
+    introName.textContent = item.name || "";
+    introName.hidden = !!item.showLogo;
+    introLogoWrap.hidden = !item.showLogo;
     introExtra.textContent = item.extra || "";
     introExtra.hidden = !item.extra;
     buildDots();
@@ -196,6 +200,12 @@ function finishIntro() {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, 600);
 }
+
+introLogo.addEventListener("error", () => {
+  introLogoWrap.hidden = true;
+  introName.hidden = false;
+  introName.textContent = language === "ar" ? "المهرجان" : "Festival";
+});
 
 function setupLogoFallback() {
   const showPlaceholder = () => {
