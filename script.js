@@ -142,7 +142,7 @@ function renderIntroCard(index, animate = true) {
   }
 
   introCard.classList.add("is-changing");
-  window.setTimeout(update, 220);
+  window.setTimeout(update, 380);
 }
 
 function scheduleNext() {
@@ -155,7 +155,7 @@ function scheduleNext() {
     introIndex += 1;
     renderIntroCard(introIndex);
     scheduleNext();
-  }, 1450);
+  }, 2600);
 }
 
 function startIntro() {
