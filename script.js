@@ -3,8 +3,8 @@ const copy = {
     archive: "ملف العرض",
     eyebrow: "مسرحية",
     title: "قرية صالح",
-    heroCopy: "البرنامج الرسمي للعرض",
     durationShort: "مدة العرض",
+    viewPoster: "عرض البوستر",
     crewHeading: "كادر العمل",
     dramaturgyDirection: "دراماتورج وإخراج",
     mohammedZaki: "محمد زكي",
@@ -36,8 +36,8 @@ const copy = {
     archive: "Performance Program",
     eyebrow: "Theatre Performance",
     title: "Qariyat Saleh",
-    heroCopy: "Official performance program",
     durationShort: "Duration",
+    viewPoster: "View Poster",
     crewHeading: "Creative Team",
     dramaturgyDirection: "Dramaturgy & Direction",
     mohammedZaki: "Mohammed Zaki",
@@ -83,6 +83,10 @@ const languageButton = document.getElementById("language-toggle");
 const replayButton = document.getElementById("replay-intro");
 const logo = document.getElementById("festival-logo");
 const logoPlaceholder = document.getElementById("logo-placeholder");
+const posterButton = document.getElementById("poster-button");
+const posterModal = document.getElementById("poster-modal");
+const posterClose = document.getElementById("poster-close");
+const posterImage = document.getElementById("poster-image");
 
 let language = localStorage.getItem("qariyat-saleh-language") || "ar";
 let introIndex = 0;
@@ -228,3 +232,42 @@ replayButton.addEventListener("click", startIntro);
 applyLanguage(language);
 setupLogoFallback();
 startIntro();
+
+
+function closePoster() {
+  posterModal.hidden = true;
+  posterModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("poster-open");
+}
+
+function openPoster() {
+  posterModal.hidden = false;
+  posterModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("poster-open");
+}
+
+function setupPoster() {
+  const posterSrc = "./assets/poster.png?v=20261006-6";
+  fetch(posterSrc, { method: "HEAD", cache: "no-store" })
+    .then((response) => {
+      if (!response.ok) throw new Error("Poster not found");
+      posterImage.src = posterSrc;
+      posterButton.hidden = false;
+    })
+    .catch(() => {
+      posterButton.hidden = true;
+    });
+
+  posterButton.addEventListener("click", openPoster);
+  posterClose.addEventListener("click", closePoster);
+
+  posterModal.addEventListener("click", (event) => {
+    if (event.target === posterModal) closePoster();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !posterModal.hidden) closePoster();
+  });
+}
+
+setupPoster();
