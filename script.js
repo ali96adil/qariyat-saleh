@@ -160,6 +160,7 @@ function scheduleNext() {
 
 function startIntro() {
   clearTimeout(introTimer);
+  isIntroClosing = false;
   isIntroRunning = true;
   introIndex = 0;
   intro.classList.remove("is-leaving");
@@ -169,20 +170,28 @@ function startIntro() {
   scheduleNext();
 }
 
+let isIntroClosing = false;
+
 function finishIntro() {
+  if (isIntroClosing || intro.hidden) return;
+
   clearTimeout(introTimer);
   isIntroRunning = false;
+  isIntroClosing = true;
   intro.classList.add("is-leaving");
 
   window.setTimeout(() => {
     intro.hidden = true;
     intro.classList.remove("is-leaving");
     main.hidden = false;
+    isIntroClosing = false;
+
     document.querySelectorAll(".credit-card").forEach((card) => {
       card.classList.remove("reveal");
       void card.offsetWidth;
       card.classList.add("reveal");
     });
+
     window.scrollTo({ top: 0, behavior: "instant" });
   }, 600);
 }
