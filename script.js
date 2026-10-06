@@ -23,7 +23,7 @@ const copy = {
     skip: "تخطي",
     introKicker: "ملف العرض",
     intro: [
-      { role: "مسرحية", name: "قرية صالح", extra: "البرنامج الرسمي للعرض", group: "title" },
+      { role: "مسرحية", name: "قرية صالح", extra: "", group: "title" },
       { role: "دراماتورج وإخراج", name: "محمد زكي", extra: "", group: "direction" },
       { role: "كادر الإخراج", name: "محمد حمزة\nأحمد كريم\nمحمد زكي", extra: "فريق الإخراج", group: "direction" },
       { role: "سينوغرافيا", name: "علي عادل", extra: "", group: "scenography" },
@@ -56,7 +56,7 @@ const copy = {
     skip: "Skip",
     introKicker: "Performance File",
     intro: [
-      { role: "Theatre Performance", name: "Qariyat Saleh", extra: "Official performance program", group: "title" },
+      { role: "Theatre Performance", name: "Qariyat Saleh", extra: "", group: "title" },
       { role: "Dramaturgy & Direction", name: "Mohammed Zaki", extra: "", group: "direction" },
       { role: "Direction Team", name: "Mohammed Hamza\nAhmed Karim\nMohammed Zaki", extra: "Direction Team", group: "direction" },
       { role: "Scenography", name: "Ali Adil", extra: "", group: "scenography" },
