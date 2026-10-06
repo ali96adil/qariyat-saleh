@@ -653,3 +653,63 @@ html[dir="ltr"] .text-button { direction: ltr; }
   font-size: 13px !important;
   line-height: 1.65 !important;
 }
+
+
+.poster-button {
+  min-height: 38px;
+  padding: 9px 14px;
+  border: 1px solid rgba(184,203,212,.28);
+  border-radius: 999px;
+  background: rgba(184,203,212,.055);
+  color: var(--cold);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.poster-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: max(18px, env(safe-area-inset-top)) 18px max(18px, env(safe-area-inset-bottom));
+  background: rgba(2, 6, 9, .94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.poster-modal[hidden] {
+  display: none !important;
+}
+
+.poster-image {
+  display: block;
+  max-width: min(92vw, 780px);
+  max-height: 88svh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border: 1px solid rgba(184,203,212,.16);
+  box-shadow: 0 28px 100px rgba(0,0,0,.55);
+}
+
+.poster-close {
+  position: fixed;
+  top: max(18px, env(safe-area-inset-top));
+  inset-inline-end: 18px;
+  z-index: 201;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(184,203,212,.22);
+  border-radius: 50%;
+  background: rgba(12,20,26,.82);
+  color: var(--text);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+body.poster-open {
+  overflow: hidden;
+}
