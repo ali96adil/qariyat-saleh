@@ -511,6 +511,36 @@ html[dir="ltr"] .text-button { direction: ltr; }
   border-inline-start: 3px solid rgba(208, 164, 150, .5);
 }
 
+.intro-logo-wrap {
+  width: min(78vw, 420px);
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  margin-top: 8px;
+  padding: 24px;
+  border: 1px solid rgba(184,203,212,.18);
+  border-radius: 20px;
+  background: rgba(255,255,255,.025);
+  overflow: hidden;
+}
+
+.intro-logo-wrap[hidden] {
+  display: none !important;
+}
+
+.intro-logo {
+  display: block;
+  width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+}
+
+.intro-card[data-group="production"] .intro-role {
+  color: #d7e3e8;
+  border-color: rgba(184,203,212,.34);
+  background: rgba(184,203,212,.06);
+}
+
 .intro-extra {
   margin: 16px 0 0;
   color: var(--cold);
