@@ -10,11 +10,11 @@ const copy = {
     dramaturgyDirection: "دراماتورج وإخراج",
     mohammedZaki: "محمد زكي",
     directionTeam: "كادر الإخراج",
-    directionNames: "محمد حمزة · أحمد كريم · محمد زكي",
+    directionNames: "محمد حمزة\nأحمد كريم\nمحمد زكي",
     scenography: "سينوغرافيا",
     aliAdil: "علي عادل",
     cast: "تمثيل",
-    castNames: "حسين العكيلي · فاطمة حيدر · أصيل عساف · عبدالله أحمد · ستيڤ أحمد",
+    castNames: "حسين العكيلي\nفاطمة حيدر\nأصيل عساف\nعبدالله أحمد\nستيڤ أحمد",
     duration: "مدة العرض",
     durationValue: "ساعة ودقيقتان",
     production: "إنتاج",
@@ -25,13 +25,13 @@ const copy = {
     skip: "تخطي",
     introKicker: "ملف العرض",
     intro: [
-      { role: "مسرحية", name: "قرية صالح", extra: "ملف العرض الرقمي" },
-      { role: "دراماتورج وإخراج", name: "محمد زكي", extra: "" },
-      { role: "كادر الإخراج", name: "محمد حمزة · أحمد كريم · محمد زكي", extra: "" },
-      { role: "سينوغرافيا", name: "علي عادل", extra: "" },
-      { role: "تمثيل", name: "حسين العكيلي · فاطمة حيدر · أصيل عساف · عبدالله أحمد · ستيڤ أحمد", extra: "" },
-      { role: "مدة العرض", name: "ساعة ودقيقتان", extra: "01:02:00" },
-      { role: "إنتاج", name: "المهرجان", extra: "يُضاف الشعار لاحقاً" }
+      { role: "مسرحية", name: "قرية صالح", extra: "ملف العرض الرقمي", group: "title" },
+      { role: "دراماتورج وإخراج", name: "محمد زكي", extra: "", group: "direction" },
+      { role: "كادر الإخراج", name: "محمد حمزة\nأحمد كريم\nمحمد زكي", extra: "فريق الإخراج", group: "direction" },
+      { role: "سينوغرافيا", name: "علي عادل", extra: "", group: "scenography" },
+      { role: "تمثيل", name: "حسين العكيلي\nفاطمة حيدر\nأصيل عساف\nعبدالله أحمد\nستيڤ أحمد", extra: "الممثلون", group: "cast" },
+      { role: "مدة العرض", name: "ساعة ودقيقتان", extra: "01:02:00", group: "meta" },
+      { role: "إنتاج", name: "المهرجان", extra: "يُضاف الشعار لاحقاً", group: "production" }
     ]
   },
   en: {
@@ -45,11 +45,11 @@ const copy = {
     dramaturgyDirection: "Dramaturgy & Direction",
     mohammedZaki: "Mohammed Zaki",
     directionTeam: "Direction Team",
-    directionNames: "Mohammed Hamza · Ahmed Karim · Mohammed Zaki",
+    directionNames: "Mohammed Hamza\nAhmed Karim\nMohammed Zaki",
     scenography: "Scenography",
     aliAdil: "Ali Adil",
     cast: "Cast",
-    castNames: "Hussein Al-Aqili · Fatima Haider · Aseel Assaf · Abdullah Ahmed · Steve Ahmed",
+    castNames: "Hussein Al-Aqili\nFatima Haider\nAseel Assaf\nAbdullah Ahmed\nSteve Ahmed",
     duration: "Duration",
     durationValue: "1 hour 2 minutes",
     production: "Production",
@@ -60,13 +60,13 @@ const copy = {
     skip: "Skip",
     introKicker: "Performance File",
     intro: [
-      { role: "Theatre Performance", name: "Qariyat Saleh", extra: "Digital Performance File" },
-      { role: "Dramaturgy & Direction", name: "Mohammed Zaki", extra: "" },
-      { role: "Direction Team", name: "Mohammed Hamza · Ahmed Karim · Mohammed Zaki", extra: "" },
-      { role: "Scenography", name: "Ali Adil", extra: "" },
-      { role: "Cast", name: "Hussein Al-Aqili · Fatima Haider · Aseel Assaf · Abdullah Ahmed · Steve Ahmed", extra: "" },
-      { role: "Duration", name: "1 hour 2 minutes", extra: "01:02:00" },
-      { role: "Production", name: "Festival", extra: "Logo to be added" }
+      { role: "Theatre Performance", name: "Qariyat Saleh", extra: "Digital Performance File", group: "title" },
+      { role: "Dramaturgy & Direction", name: "Mohammed Zaki", extra: "", group: "direction" },
+      { role: "Direction Team", name: "Mohammed Hamza\nAhmed Karim\nMohammed Zaki", extra: "Direction Team", group: "direction" },
+      { role: "Scenography", name: "Ali Adil", extra: "", group: "scenography" },
+      { role: "Cast", name: "Hussein Al-Aqili\nFatima Haider\nAseel Assaf\nAbdullah Ahmed\nSteve Ahmed", extra: "Cast", group: "cast" },
+      { role: "Duration", name: "1 hour 2 minutes", extra: "01:02:00", group: "meta" },
+      { role: "Production", name: "Festival", extra: "Logo to be added", group: "production" }
     ]
   }
 };
@@ -128,6 +128,7 @@ function renderIntroCard(index, animate = true) {
   if (!item) return;
 
   const update = () => {
+    introCard.dataset.group = item.group || "default";
     introRole.textContent = item.role;
     introName.textContent = item.name;
     introExtra.textContent = item.extra || "";
