@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1218" />
+  <meta name="description" content="الصفحة الرقمية الرسمية لعرض قرية صالح" />
+  <title>قرية صالح — ملف العرض</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <section id="intro" class="intro" aria-live="polite">
+    <div class="intro-frame">
+      <div class="scan-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <p id="intro-kicker" class="intro-kicker">ملف العرض</p>
+      <div id="intro-card" class="intro-card">
+        <p id="intro-role" class="intro-role"></p>
+        <h1 id="intro-name" class="intro-name"></h1>
+        <p id="intro-extra" class="intro-extra"></p>
+      </div>
+      <div class="intro-footer">
+        <div id="intro-dots" class="intro-dots" aria-hidden="true"></div>
+        <button id="skip-intro" class="ghost-button" type="button">تخطي</button>
+      </div>
+    </div>
+  </section>
+
+  <main id="main" class="main" hidden>
+    <header class="topbar">
+      <div class="brand-mark" aria-label="قرية صالح">
+        <span class="brand-dot"></span>
+        <span data-i18n="archive">ملف العرض الرقمي</span>
+      </div>
+      <button id="language-toggle" class="language-toggle" type="button" aria-label="Switch to English">
+        EN
+      </button>
+    </header>
+
+    <section class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <p class="eyebrow" data-i18n="eyebrow">مسرحية</p>
+      <h1 data-i18n="title">قرية صالح</h1>
+      <p class="hero-copy" data-i18n="heroCopy">ملف رقمي للعرض المسرحي</p>
+      <div class="meta-row">
+        <span class="meta-chip"><b>01:02:00</b><span data-i18n="durationShort">مدة العرض</span></span>
+        <span class="meta-chip"><b>QR / ARCHIVE</b><span data-i18n="permanentPage">صفحة العرض</span></span>
+      </div>
+    </section>
+
+    <section class="credits" aria-labelledby="credits-heading">
+      <div class="section-heading">
+        <p class="eyebrow">01</p>
+        <h2 id="credits-heading" data-i18n="crewHeading">كادر العمل</h2>
+      </div>
+
+      <div class="credit-grid">
+        <article class="credit-card feature-card">
+          <span class="card-index">001</span>
+          <p class="card-label" data-i18n="dramaturgyDirection">دراماتورج وإخراج</p>
+          <h3 data-i18n="mohammedZaki">محمد زكي</h3>
+        </article>
+
+        <article class="credit-card">
+          <span class="card-index">002</span>
+          <p class="card-label" data-i18n="directionTeam">كادر الإخراج</p>
+          <h3 data-i18n="directionNames">محمد حمزة · أحمد كريم · محمد زكي</h3>
+        </article>
+
+        <article class="credit-card">
+          <span class="card-index">003</span>
+          <p class="card-label" data-i18n="scenography">سينوغرافيا</p>
+          <h3 data-i18n="aliAdil">علي عادل</h3>
+        </article>
+
+        <article class="credit-card cast-card">
+          <span class="card-index">004</span>
+          <p class="card-label" data-i18n="cast">تمثيل</p>
+          <h3 data-i18n="castNames">حسين العكيلي · فاطمة حيدر · أصيل عساف · عبدالله أحمد · ستيڤ أحمد</h3>
+        </article>
+
+        <article class="credit-card">
+          <span class="card-index">005</span>
+          <p class="card-label" data-i18n="duration">مدة العرض</p>
+          <h3 data-i18n="durationValue">ساعة ودقيقتان</h3>
+        </article>
+
+        <article class="credit-card production-card">
+          <span class="card-index">006</span>
+          <p class="card-label" data-i18n="production">إنتاج</p>
+          <div class="logo-slot">
+            <img id="festival-logo" src="./assets/festival-logo.png" alt="Festival logo" />
+            <div id="logo-placeholder" class="logo-placeholder">
+              <span>+</span>
+              <strong data-i18n="logoPlaceholder">شعار المهرجان</strong>
+              <small>assets/festival-logo.png</small>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="identity-block">
+      <div>
+        <p class="eyebrow">02</p>
+        <h2 data-i18n="identityHeading">هوية رقمية للعرض</h2>
+      </div>
+      <p data-i18n="identityCopy">هذا الرابط هو النسخة الدائمة لبطاقة العرض، ويمكن تحديث محتوى الصفحة لاحقاً من دون تغيير رمز QR المطبوع.</p>
+    </section>
+
+    <footer class="footer">
+      <span>QARIYAT SALEH</span>
+      <button id="replay-intro" class="text-button" type="button" data-i18n="replay">إعادة المقدمة</button>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
