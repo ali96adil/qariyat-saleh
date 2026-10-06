@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0b1218" />
   <meta name="description" content="الصفحة الرقمية الرسمية لعرض قرية صالح" />
   <title>قرية صالح — ملف العرض</title>
-  <link rel="stylesheet" href="./styles.css?v=20261006-4" />
+  <link rel="stylesheet" href="./styles.css?v=20261006-6" />
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
@@ -46,9 +46,9 @@
       <div class="hero-grid" aria-hidden="true"></div>
       <p class="eyebrow" data-i18n="eyebrow">مسرحية</p>
       <h1 data-i18n="title">قرية صالح</h1>
-      <p class="hero-copy" data-i18n="heroCopy">البرنامج الرسمي للعرض</p>
       <div class="meta-row">
         <span class="meta-chip"><b>01:02:00</b><span data-i18n="durationShort">مدة العرض</span></span>
+        <button id="poster-button" class="poster-button" type="button" hidden data-i18n="viewPoster">عرض البوستر</button>
       </div>
     </section>
 
@@ -111,6 +111,11 @@
     </footer>
   </main>
 
-  <script src="./script.js?v=20261006-5"></script>
+  <div id="poster-modal" class="poster-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Poster">
+    <button id="poster-close" class="poster-close" type="button" aria-label="Close">×</button>
+    <img id="poster-image" class="poster-image" src="./assets/poster.png?v=20261006-6" alt="قرية صالح — بوستر العرض" />
+  </div>
+
+  <script src="./script.js?v=20261006-6"></script>
 </body>
 </html>
