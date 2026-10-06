@@ -275,6 +275,7 @@ button:focus-visible {
 .credit-card h3 {
   margin: 0;
   max-width: 94%;
+  white-space: pre-line;
   font-size: clamp(24px, 6.6vw, 38px);
   line-height: 1.45;
   font-weight: 700;
@@ -452,17 +453,62 @@ html[dir="ltr"] .text-button { direction: ltr; }
 }
 
 .intro-role {
-  margin: 0 0 14px;
+  align-self: flex-start;
+  margin: 0 0 18px;
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
   color: var(--muted);
-  font-size: 14px;
+  background: rgba(255,255,255,.025);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .03em;
 }
 
 .intro-name {
   margin: 0;
   max-width: 650px;
+  white-space: pre-line;
   font-size: clamp(38px, 11vw, 74px);
   line-height: 1.15;
   letter-spacing: -.04em;
+}
+
+.intro-card[data-group="direction"] {
+  border-inline-start: 3px solid rgba(159, 200, 216, .72);
+  padding-inline-start: 22px;
+}
+.intro-card[data-group="direction"] .intro-role {
+  color: #b8d6e1;
+  border-color: rgba(159, 200, 216, .34);
+  background: rgba(159, 200, 216, .07);
+}
+
+.intro-card[data-group="cast"] {
+  border-inline-start: 3px solid rgba(208, 164, 150, .72);
+  padding-inline-start: 22px;
+}
+.intro-card[data-group="cast"] .intro-role {
+  color: #dfb5a8;
+  border-color: rgba(208, 164, 150, .34);
+  background: rgba(208, 164, 150, .07);
+}
+.intro-card[data-group="cast"] .intro-name {
+  font-size: clamp(30px, 8.5vw, 56px);
+  line-height: 1.34;
+}
+
+.intro-card[data-group="scenography"] {
+  border-inline-start: 3px solid rgba(184, 203, 212, .38);
+  padding-inline-start: 22px;
+}
+
+.credit-card:nth-child(2) {
+  border-inline-start: 3px solid rgba(159, 200, 216, .5);
+}
+
+.cast-card {
+  border-inline-start: 3px solid rgba(208, 164, 150, .5);
 }
 
 .intro-extra {
