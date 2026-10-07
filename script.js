@@ -19,6 +19,7 @@ const copy = {
     production: "إنتاج",
     logoPlaceholder: "شعار المهرجان",
     festivalName: "مهرجان بابل للثقافات العالمية",
+    visits: "الزيارات",
     replay: "إعادة المقدمة",
     skip: "تخطي",
     introKicker: "ملف العرض",
@@ -52,6 +53,7 @@ const copy = {
     production: "Production",
     logoPlaceholder: "Festival Logo",
     festivalName: "Babylon Festival for World Cultures",
+    visits: "Visits",
     replay: "Replay intro",
     skip: "Skip",
     introKicker: "Performance File",
@@ -87,6 +89,8 @@ const posterButton = document.getElementById("poster-button");
 const posterModal = document.getElementById("poster-modal");
 const posterClose = document.getElementById("poster-close");
 const posterImage = document.getElementById("poster-image");
+const visitStat = document.getElementById("visit-stat");
+const visitCount = document.getElementById("visit-count");
 
 let language = localStorage.getItem("qariyat-saleh-language") || "ar";
 let introIndex = 0;
@@ -271,3 +275,37 @@ function setupPoster() {
 }
 
 setupPoster();
+
+
+function loadVisitCount() {
+  if (!visitStat || !visitCount) return;
+
+  const tryLoad = () => {
+    const path = (window.goatcounter && window.goatcounter.get_data)
+      ? window.goatcounter.get_data().p
+      : location.pathname;
+
+    const counterUrl =
+      "https://ali96adil.goatcounter.com/counter/" +
+      encodeURIComponent(path) +
+      ".json";
+
+    fetch(counterUrl, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("Visit count unavailable");
+        return response.json();
+      })
+      .then((data) => {
+        if (!data || !data.count) throw new Error("Missing visit count");
+        visitCount.textContent = data.count;
+        visitStat.hidden = false;
+      })
+      .catch(() => {
+        visitStat.hidden = true;
+      });
+  };
+
+  window.setTimeout(tryLoad, 1200);
+}
+
+loadVisitCount();

@@ -713,3 +713,24 @@ html[dir="ltr"] .text-button { direction: ltr; }
 body.poster-open {
   overflow: hidden;
 }
+
+
+.visit-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.visit-stat[hidden] {
+  display: none !important;
+}
+
+.visit-stat b {
+  color: var(--cold);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
