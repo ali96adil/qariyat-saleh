@@ -280,32 +280,34 @@ setupPoster();
 function loadVisitCount() {
   if (!visitStat || !visitCount) return;
 
+  const endpoint = "https://ali96adil.goatcounter.com/counter/TOTAL.json";
+  let attempts = 0;
+
   const tryLoad = () => {
-    const path = (window.goatcounter && window.goatcounter.get_data)
-      ? window.goatcounter.get_data().p
-      : location.pathname;
+    attempts += 1;
 
-    const counterUrl =
-      "https://ali96adil.goatcounter.com/counter/" +
-      encodeURIComponent(path) +
-      ".json";
-
-    fetch(counterUrl, { cache: "no-store" })
+    fetch(endpoint, { cache: "no-store" })
       .then((response) => {
         if (!response.ok) throw new Error("Visit count unavailable");
         return response.json();
       })
       .then((data) => {
-        if (!data || !data.count) throw new Error("Missing visit count");
-        visitCount.textContent = data.count;
+        const value = data && data.count != null ? String(data.count) : "";
+        if (!value) throw new Error("Missing visit count");
+
+        visitCount.textContent = value;
         visitStat.hidden = false;
       })
       .catch(() => {
+        if (attempts < 4) {
+          window.setTimeout(tryLoad, attempts * 1500);
+          return;
+        }
         visitStat.hidden = true;
       });
   };
 
-  window.setTimeout(tryLoad, 1200);
+  window.setTimeout(tryLoad, 1800);
 }
 
 loadVisitCount();
